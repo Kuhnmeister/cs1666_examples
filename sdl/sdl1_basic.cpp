@@ -48,8 +48,8 @@ int main() {
 			// Update the display with the new "image" drawn to the window surface
 			SDL_UpdateWindowSurface(window);
 
-			// Ensure the window is up for 5s before exit
-			SDL_Delay(5000);
+			// Ensure the window is up for 10s before exit
+			SDL_Delay(10000);
 		}
 	}
 

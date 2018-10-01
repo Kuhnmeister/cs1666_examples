@@ -79,7 +79,7 @@ int main() {
 			if (e.type == SDL_QUIT) {
 				gameon = false;
 			}
-			else if(e.type == SDL_KEYDOWN) {
+			else if(e.type == SDL_KEYDOWN && e.key.repeat == 0) {
 				switch(e.key.keysym.sym) {
 					case SDLK_w:
 						y_vel -= 1;
@@ -98,13 +98,38 @@ int main() {
 						break;
 				}
 			}
-			
+			else if(e.type == SDL_KEYUP && e.key.repeat == 0) {
+				switch(e.key.keysym.sym) {
+					case SDLK_w:
+						y_vel += 1;
+						break;
+					case SDLK_a:
+						x_vel += 1;
+						break;
+					case SDLK_s:
+						y_vel -= 1;
+						break;
+					case SDLK_d:
+						x_vel -= 1;
+						break;
+				}
+			}
 		}
 
 		// Move box
 		x_pos += x_vel;
 		y_pos += y_vel;
 		
+		if (x_pos < 0)
+			x_pos = 0;
+		else if (x_pos + BOX_WIDTH > SCREEN_WIDTH)
+			x_pos = SCREEN_WIDTH - BOX_WIDTH;
+
+		if (y_pos < 0)
+			y_pos = 0;
+		else if (y_pos + BOX_HEIGHT > SCREEN_HEIGHT)
+			y_pos = SCREEN_HEIGHT - BOX_HEIGHT;
+
 		// Draw box
 		// Clear black
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);

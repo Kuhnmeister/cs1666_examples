@@ -76,8 +76,8 @@ int main() {
 	SDL_BlitSurface(gImg, NULL, gScreenSurface, NULL );
 	// Update the window surface
 	SDL_UpdateWindowSurface(gWindow);
-	// Wait 5 seconds
-	SDL_Delay(5000);
+	// Wait 10 seconds
+	SDL_Delay(10000);
 
 	close();
 }

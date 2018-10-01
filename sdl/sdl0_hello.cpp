@@ -115,7 +115,7 @@ int main() {
 	// Display rendering
 	SDL_RenderPresent(gRenderer);
 	// Wait 5 seconds
-	SDL_Delay(5000);
+	SDL_Delay(10000);
 
 	SDL_RenderCopy(gRenderer, gTex[1], NULL, NULL);
 	SDL_RenderPresent(gRenderer);
